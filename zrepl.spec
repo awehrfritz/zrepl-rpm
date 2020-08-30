@@ -47,6 +47,7 @@
 # -------------
 # The spec file has been tested on Fedora's copr build service [3] and is known
 # to work for the following distributions:
+#  - epel-7-x86_64 (with the IUS community repositories [4] for git >=2 *)
 #  - epel-8-x86_64
 #  - fedora-31-x86_64
 #  - fedora-32-x86_64
@@ -55,12 +56,17 @@
 #  - opensuse-leap-15.1-x86_64
 #  - opensuse-leap-15.2-x86_64
 #
+# *To enable the IUS community repositories, add `https://repo.ius.io/7/$basearch/`
+#  to the chroots settings for `epel-7-x86_64`:
+#  https://copr.fedorainfracloud.org/coprs/awehrfritz/zrepl/edit_chroot/epel-7-x86_64/
+#
 #
 # References
 # ----------
 # [1] https://docs.fedoraproject.org/en-US/packaging-guidelines/Golang/
 # [2] https://en.opensuse.org/openSUSE:Packaging_Go
 # [3] https://copr.fedorainfracloud.org/
+# [4] https://ius.io/
 
 
 # Add workaround for "No build ID note found" error during %%install
@@ -191,5 +197,8 @@ install -Dm 0644 config/samples/hooks/*.* %{buildroot}%{_datadir}/doc/zrepl/exam
 
 
 %changelog
+* Sun Aug 30 2020 Armin Wehrfritz <dkxls23@gmail.com> - 0.3.0-1
+- Add RedHat/CentOS 7 compatibility
+
 * Fri Aug 28 2020 Armin Wehrfritz <dkxls23@gmail.com> - 0.3.0-1
 - Initial package build
