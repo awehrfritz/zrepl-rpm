@@ -91,7 +91,7 @@ zrepl is a one-stop, integrated solution for ZFS replication.}
 
 
 Name:             zrepl
-Release:          1%{?dist}
+Release:          2%{?dist}
 Summary:          One-stop, integrated solution for ZFS replication
 License:          MIT
 URL:              https://zrepl.github.io/
@@ -102,9 +102,11 @@ Source0:          %{gosource}
 # openSUSE and RedHat/CentOS 7
 Source0:          %{name}-%{version}.tar.gz
 %endif
-BuildRequires:    golang >= 1.11
 %if 0%{?suse_version}
+BuildRequires:    golang(API) >= 1.11
 BuildRequires:    golang-packaging
+%else
+BuildRequires:    golang >= 1.11
 %endif
 BuildRequires:    git >= 2
 BuildRequires:    systemd
@@ -197,7 +199,7 @@ install -Dm 0644 config/samples/hooks/*.* %{buildroot}%{_datadir}/doc/zrepl/exam
 
 
 %changelog
-* Sun Aug 30 2020 Armin Wehrfritz <dkxls23@gmail.com> - 0.3.0-1
+* Sun Aug 30 2020 Armin Wehrfritz <dkxls23@gmail.com> - 0.3.0-2
 - Add RedHat/CentOS 7 compatibility
 
 * Fri Aug 28 2020 Armin Wehrfritz <dkxls23@gmail.com> - 0.3.0-1
