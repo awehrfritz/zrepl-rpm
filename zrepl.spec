@@ -77,7 +77,7 @@
 # Global meta data
 %global goipath   github.com/zrepl/zrepl
 Version:          0.3.0
-%if 0%{?fedora}%{?rhel}
+%if 0%{?fedora}%{?rhel} >= 8
 %gometa
 %endif
 %global common_description %{expand:
@@ -89,14 +89,16 @@ Release:          1%{?dist}
 Summary:          One-stop, integrated solution for ZFS replication
 License:          MIT
 URL:              https://zrepl.github.io/
-%if 0%{?fedora}%{?rhel}
-# Fedora/RedHat/CentOS
+%if 0%{?fedora}%{?rhel} >= 8
+# Fedora and RedHat/CentOS 8
 Source0:          %{gosource}
 %else
-# openSUSE
+# openSUSE and RedHat/CentOS 7
 Source0:          %{name}-%{version}.tar.gz
+%endif
+BuildRequires:    golang >= 1.11
+%if 0%{?suse_version}
 BuildRequires:    golang-packaging
-BuildRequires:    golang(API) >= 1.11
 %endif
 BuildRequires:    git
 BuildRequires:    systemd
