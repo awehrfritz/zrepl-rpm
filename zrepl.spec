@@ -57,7 +57,7 @@
 #  - opensuse-leap-15.2-x86_64
 #
 # *To enable the IUS community repositories, add `https://repo.ius.io/7/$basearch/`
-#  to the chroots settings for `epel-7-x86_64`:
+#  to the chroots settings for `epel-7-x86_64`, e.g.:
 #  https://copr.fedorainfracloud.org/coprs/awehrfritz/zrepl/edit_chroot/epel-7-x86_64/
 #
 #
