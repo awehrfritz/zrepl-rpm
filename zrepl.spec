@@ -100,7 +100,7 @@ BuildRequires:    golang >= 1.11
 %if 0%{?suse_version}
 BuildRequires:    golang-packaging
 %endif
-BuildRequires:    git
+BuildRequires:    git >= 2
 BuildRequires:    systemd
 Requires(post):   systemd
 Requires(preun):  systemd
